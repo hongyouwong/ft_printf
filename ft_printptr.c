@@ -14,18 +14,9 @@
 
 void	ft_putptr(uintptr_t num)
 {
-	if (num <= 16)
-	{
-		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
-		else
-			ft_putchar_fd((num - 10 + 'a'), 1);
-	}
-	else
-	{
+	if (num >= 16)
 		ft_putptr(num / 16);
-		ft_putptr(num % 16);
-	}
+	ft_putchar_fd("0123456789abcdef"[num % 16], 1);
 }
 
 int	ft_printptr(uintptr_t ptr)

@@ -21,6 +21,9 @@ INCLUDES = ft_printf.h
 SRCS	= ft_itoa.c ft_printf.c ft_printhex.c ft_printptr.c print_util_1.c print_util_2.c
 OBJS	= $(SRCS:.c=.o)
 
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCLUDES)
+
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
